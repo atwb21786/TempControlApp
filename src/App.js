@@ -2,18 +2,21 @@ import React from 'react';
 import './App.css';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      temperatureValue: 10,
-    }
-
-    
+  
+  state = {
+    temperatureValue: 15
   }
 
-  setTemperatureValue = () => {
-    console.log("Temperature")
+  increaseTemperature = e => {
+    this.setState({
+      temperatureValue: this.state.temperatureValue + 1,
+    })
+  }
+
+  decreaseTemperature = e => {
+    this.setState({
+      temperatureValue: this.state.temperatureValue - 1,
+    })
   }
 
   render() {
@@ -23,8 +26,8 @@ class App extends React.Component {
           <div className="temp-display">{this.state.temperatureValue}°C</div>
         </div>
         <div className="button-container">
-          <button >+</button>
-          <button>-</button>
+          <button type="submit" onClick={this.increaseTemperature}>+</button>
+          <button type="submit" onClick={this.decreaseTemperature}>-</button>
         </div>
 
       </div>
