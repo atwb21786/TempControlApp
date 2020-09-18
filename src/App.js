@@ -17,15 +17,26 @@ class App extends React.Component {
         temperatureColor: 'hot'
       })
     }
+    if(this.state.temperatureValue >= 30) {
+      this.setState({
+        temperatureValue: 30
+      })
+      
+    }
   }
 
   decreaseTemperature = e => {
     this.setState({
       temperatureValue: this.state.temperatureValue - 1,
     })
-    if(this.state.temperatureValue < 15) {
+    if(this.state.temperatureValue <= 15) {
       this.setState({
         temperatureColor: 'cold'
+      })
+    }
+    if(this.state.temperatureValue <= 0) {
+      this.setState({
+        temperatureValue: 0
       })
     }
   }
